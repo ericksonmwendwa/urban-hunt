@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "126188390316",
+    "project_id": "urban-hunt-7cb8e",
+    "storage_bucket": "urban-hunt-7cb8e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126188390316:android:00d7abdb8a178cfaa35c09",
+        "android_client_info": {
+          "package_name": "com.example.urban_hunt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEyDXD6JBTw4xXsSJhk8mucbpKipgI2bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
