@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:provider/provider.dart';
+import 'package:urban_hunt/models/user_model.dart';
+import 'package:urban_hunt/provider/user_provider.dart';
 import 'package:urban_hunt/screens/favorites_screen.dart';
 import 'package:urban_hunt/screens/home_screen.dart';
 import 'package:urban_hunt/screens/map_screen.dart';
 import 'package:urban_hunt/screens/profile_screen.dart';
+import 'package:urban_hunt/services/user_service.dart';
 
 class AppScreen extends StatefulWidget {
   const AppScreen({super.key});
@@ -13,6 +17,16 @@ class AppScreen extends StatefulWidget {
 }
 
 class _AppScreenState extends State<AppScreen> {
+  final UserService _userService = UserService();
+
+  Future<void> _getUser() async {
+    UserModel? user = await _userService.getUser();
+
+    if (!mounted) return;
+
+    context.read<UserProvider>().setUser(user);
+  }
+
   int _selectedIndex = 0;
 
   final List<String> _titles = <String>['Home', 'Map', 'Favorites', 'Profile'];
@@ -23,6 +37,13 @@ class _AppScreenState extends State<AppScreen> {
     const FavoritesScreen(),
     const ProfileScreen(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _getUser();
+  }
 
   @override
   Widget build(BuildContext context) {
