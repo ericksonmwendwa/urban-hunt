@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:urban_hunt/models/favorite_model.dart';
 import 'package:urban_hunt/models/property_model.dart';
 import 'package:urban_hunt/provider/user_provider.dart';
+import 'package:urban_hunt/screens/property_screen.dart';
 import 'package:urban_hunt/services/favorite_service.dart';
 import 'package:urban_hunt/widget/favorite_button.dart';
 
@@ -27,7 +28,16 @@ class PropertyWidget extends StatelessWidget {
       initialData: const <FavoriteModel>[],
       value: FavoriteService().getFavorites(),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return PropertyScreen(property: property);
+              },
+            ),
+          );
+        },
         child: Stack(
           children: <Widget>[
             Container(
@@ -154,7 +164,9 @@ class PropertyWidget extends StatelessWidget {
             Text(
               property.category.toUpperCase(),
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                letterSpacing: 1.0,
                 color: Theme.of(context).colorScheme.surface,
+                fontVariations: <FontVariation>[FontVariation.weight(500)],
               ),
             ),
             const SizedBox(width: 7.5),
@@ -168,7 +180,9 @@ class PropertyWidget extends StatelessWidget {
             Text(
               property.type.toUpperCase(),
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                letterSpacing: 1.0,
                 color: Theme.of(context).colorScheme.surface,
+                fontVariations: <FontVariation>[FontVariation.weight(500)],
               ),
             ),
           ],

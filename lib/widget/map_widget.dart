@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:urban_hunt/models/property_model.dart';
+import 'package:urban_hunt/screens/property_screen.dart';
 import 'package:urban_hunt/widget/loading_icon.dart';
 
 class MapWidget extends StatelessWidget {
@@ -11,7 +12,16 @@ class MapWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute<dynamic>(
+            builder: (BuildContext context) {
+              return PropertyScreen(property: property);
+            },
+          ),
+        );
+      },
       child: Container(
         padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(

@@ -43,7 +43,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
         return Icon(
           isFavorite ? Icons.favorite : Icons.favorite_border,
           size: 32.0,
-          color: Theme.of(context).colorScheme.surface,
+          color: Colors.pink,
         );
       },
     );
