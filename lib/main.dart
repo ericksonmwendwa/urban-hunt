@@ -5,6 +5,7 @@ import 'package:urban_hunt/config/router.dart';
 import 'package:urban_hunt/config/theme.dart';
 import 'package:urban_hunt/firebase_options.dart';
 import 'package:urban_hunt/models/auth_model.dart';
+import 'package:urban_hunt/provider/filter_provider.dart';
 import 'package:urban_hunt/provider/user_provider.dart';
 import 'package:urban_hunt/screens/app_screen.dart';
 import 'package:urban_hunt/screens/splash_screen.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
           initialData: null,
         ),
         ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider<FilterProvider>(create: (_) => FilterProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -46,7 +48,7 @@ class AuthWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AuthModel? user = context.read<AuthModel?>();
+    final AuthModel? user = Provider.of<AuthModel?>(context);
 
     if (user == null) {
       return const SplashScreen();
