@@ -19,6 +19,8 @@ class FavoriteButton extends StatefulWidget {
 }
 
 class _FavoriteButtonState extends State<FavoriteButton> {
+  final FavoriteService _favoriteService = FavoriteService();
+
   @override
   Widget build(BuildContext context) {
     final List<FavoriteModel>? myFavorites = Provider.of<List<FavoriteModel>?>(
@@ -33,10 +35,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
       circleSize: 30.0,
       isLiked: isFavorite,
       onTap: (bool bool) async {
-        await FavoriteService(
-          userId: widget.userId,
-          propertyId: widget.propertyId,
-        ).likeProperty();
+        await _favoriteService.likeProperty(widget.propertyId);
 
         return true;
       },

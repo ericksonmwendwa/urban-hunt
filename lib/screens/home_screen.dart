@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }
 
         if (properties.isEmpty) {
-          return const Center(child: Text('No properties found'));
+          return const Center(child: Text('No properties found.'));
         }
 
         return ListView.separated(

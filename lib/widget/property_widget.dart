@@ -25,10 +25,7 @@ class PropertyWidget extends StatelessWidget {
 
     return StreamProvider<List<FavoriteModel>?>.value(
       initialData: const <FavoriteModel>[],
-      value: FavoriteService(
-        userId: userId,
-        propertyId: propertyId,
-      ).getFavorites(),
+      value: FavoriteService().getFavorites(),
       child: GestureDetector(
         onTap: () {},
         child: Stack(
