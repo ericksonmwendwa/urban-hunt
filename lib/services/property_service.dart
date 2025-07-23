@@ -5,6 +5,22 @@ class PropertyService {
   final CollectionReference propertiesCollection = FirebaseFirestore.instance
       .collection('properties');
 
+  Future<List<PropertyModel>> fetchProperties() async {
+    final List<PropertyModel> properties = <PropertyModel>[];
+
+    await propertiesCollection.get().then((QuerySnapshot<Object?> snapshot) {
+      for (final QueryDocumentSnapshot<Object?> doc in snapshot.docs) {
+        final data = doc.data() as Map<String, dynamic>;
+
+        data['id'] = doc.id;
+
+        properties.add(PropertyModel.fromJson(data));
+      }
+    });
+
+    return properties;
+  }
+
   Stream<List<PropertyModel>> getProperties({
     required int perPage,
     required bool loadMore,

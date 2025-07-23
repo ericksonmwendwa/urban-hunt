@@ -58,39 +58,3 @@ class PropertyModel {
     );
   }
 }
-
-class PropertyLocation {
-  final String address;
-  final String county;
-  final PropertyCordinates cordinates;
-
-  const PropertyLocation({
-    required this.address,
-    required this.county,
-    required this.cordinates,
-  });
-
-  factory PropertyLocation.fromJson(Map<String, dynamic> json) {
-    return PropertyLocation(
-      address: json['address'] as String,
-      county: json['county'] as String,
-      cordinates: PropertyCordinates.fromJson(
-        json['cordinates'] as Map<String, dynamic>,
-      ),
-    );
-  }
-}
-
-class PropertyCordinates {
-  final double lat;
-  final double lng;
-
-  const PropertyCordinates({required this.lat, required this.lng});
-
-  factory PropertyCordinates.fromJson(Map<String, dynamic> json) {
-    return PropertyCordinates(
-      lat: json['lat'] as double,
-      lng: json['lng'] as double,
-    );
-  }
-}
