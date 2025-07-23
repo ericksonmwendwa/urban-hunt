@@ -48,7 +48,10 @@ class _AppScreenState extends State<AppScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(_titles[_selectedIndex])),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(_titles[_selectedIndex]),
+      ),
       body: SafeArea(child: _screens[_selectedIndex]),
       bottomNavigationBar: _bottomNavigationBar(),
     );
