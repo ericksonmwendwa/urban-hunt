@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:urban_hunt/models/auth_model.dart';
 import 'package:urban_hunt/screens/app_screen.dart';
+import 'package:urban_hunt/screens/edit_screen.dart';
 import 'package:urban_hunt/screens/error_404_screen.dart';
 import 'package:urban_hunt/screens/login_screen.dart';
+import 'package:urban_hunt/screens/logout_screen.dart';
+import 'package:urban_hunt/screens/password_screen.dart';
 import 'package:urban_hunt/screens/register_screen.dart';
 import 'package:urban_hunt/screens/splash_screen.dart';
 
@@ -30,6 +33,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           return const LoginScreen();
         case '/register':
           return const RegisterScreen();
+        case '/password':
+          return const PasswordScreen();
+        case '/edit':
+          return const EditScreen();
+        case '/logout':
+          return const LogoutScreen();
         default:
           return const Error404Screen();
       }

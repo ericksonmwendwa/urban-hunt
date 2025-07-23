@@ -42,6 +42,7 @@ class UserService {
     Map<String, dynamic> user = <String, dynamic>{
       'name': name,
       'email': email,
+      'phone': phone,
       'createdAt': FieldValue.serverTimestamp(),
     };
 

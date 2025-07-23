@@ -7,19 +7,27 @@ class Error404Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          const Text('Error 404'),
-          const SizedBox(height: 20),
-          CustomButton(
-            text: 'Go to Home',
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Text('Error 404', style: Theme.of(context).textTheme.displayMedium),
+            const SizedBox(height: 12.0),
+            Text(
+              'Page not found',
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 48.0),
+            CustomButton(
+              text: 'Go Back',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

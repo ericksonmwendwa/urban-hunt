@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Center(
               child: Icon(
                 Icons.filter_list_rounded,
-                size: 18.0,
+                size: 28.0,
                 color: Theme.of(context).colorScheme.inverseSurface,
               ),
             ),
